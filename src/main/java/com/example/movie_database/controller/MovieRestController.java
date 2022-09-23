@@ -29,16 +29,12 @@ public class MovieRestController {
 
 	@GetMapping("/")
 	public List<Movie> getMovies() {
-
 		return this.movieService.getMovie();
-
 	}
 	
 	@GetMapping("/listing")
 	public ResponseEntity<Object> getMoviesListing() {
-
 		return new ResponseEntity<Object>(this.movieService.getMovie(), HttpStatus.ACCEPTED);
-
 	}
 
 	@GetMapping("/{id}")

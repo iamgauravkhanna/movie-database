@@ -20,19 +20,14 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDAOImpl movieDAOImpl;
 
 	public List<Movie> getMovie() {
-
 		return (List<Movie>)movieRepository.findAll();
-
 	}
 
 	public List<Movie> getMovieByName(String name) {
-
 		return (List<Movie>)movieRepository.findByNameContaining(name);
-
 	}
 
 	public Optional<Movie> getMovieById(int id) {
-
 		return this.movieRepository.findById(id);
 	}
 

@@ -9,14 +9,6 @@ public class MovieDatabaseApplication {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext context = SpringApplication.run(MovieDatabaseApplication.class, args);
-
-		System.out.println("No. of Beans :: " + context.getBeanDefinitionCount());
-
-		String[] beanDef = context.getBeanDefinitionNames();
-
-		//Arrays.asList(beanDef).forEach(System.out::println);
-
+		SpringApplication.run(MovieDatabaseApplication.class, args);
 	}
-
 }
