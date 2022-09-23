@@ -1,0 +1,17 @@
+Project : Movie Database
+
+Home
+Show Movies List
+Add Movie Form
+Edit Movie Form
+Sign Up
+Login
+Profile
+Logout
+Show Web Series List
+Add Web Series Form
+Edit Web Series Form
+Add Rating
+Edit Rating
+OTP Verification
+Email Verification
