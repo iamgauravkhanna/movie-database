@@ -27,9 +27,15 @@ public class MovieRestController {
 	@Autowired
 	MovieService movieService;
 
+	@GetMapping("/greeting")
+	public ResponseEntity<String> greeting(@RequestHeader("accept-language") String language) {
+		// code that uses the language variable
+		return new ResponseEntity<String>(language, HttpStatus.OK);
+	}
+
 	@GetMapping("/")
 	public List<Movie> getMovies() {
-		return this.movieService.getMovie();
+		return movieService.getMovie();
 	}
 	
 	@GetMapping("/listing")
@@ -39,51 +45,32 @@ public class MovieRestController {
 
 	@GetMapping("/{id}")
 	public Optional<Movie> getMovieById(@PathVariable("id") int id) {
-
 		return movieService.getMovieById(id);
+	}
 
-	}
-	
-	@GetMapping("/by-id")
-	public Optional<Movie> getMovieByIdUsingParam(@RequestParam int id){
-		
-		return movieService.getMovieById(id);
-		
-	}
-	
 	@GetMapping("/findByName/{name}")
 	public List<Movie> getMovieByName(@PathVariable("name") String name){
-		
 		return movieService.getMovieByName(name);
-		
+	}
+
+	@GetMapping("/query")
+	public Optional<Movie> getMovieByIdUsingParam(@RequestParam int id){
+		return movieService.getMovieById(id);
 	}
 
 	@PostMapping("/")
 	public Movie createMovie(@RequestBody Movie movie) {
-
 		System.out.println(movie.toString());
-
 		return this.movieService.saveMovie(movie);
 	}
 
 	@PutMapping("/")
 	public Movie updateMovie(@RequestBody Movie movie) {
-
 		return this.movieService.saveMovie(movie);
-
 	}
 
 	@DeleteMapping("/{id}")
 	public void deleteMovie(@PathVariable("id") int id) {
-
 		movieService.deleteMovie(id);
-
 	}
-	
-	@GetMapping("/greeting")
-	public ResponseEntity<String> greeting(@RequestHeader("accept-language") String language) {
-	    // code that uses the language variable
-	    return new ResponseEntity<String>(language, HttpStatus.OK);
-	}
-
 }
